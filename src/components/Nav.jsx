@@ -11,15 +11,13 @@ const [categories, setCategories] = useState([]);
   }, []);
       return(
          <div className="nav-bar">
-            <ul>
                {categories.map(category => {
                   return (
-                     <li key={category.slug}>
-                        <Link to={`/games/${category.slug}`}>{category.slug}</Link>
-                     </li>
+                     <div className="nav-bar-link">
+                        <Link to={`/reviews/${category.slug}`}>{category.slug}</Link>
+                     </div>
                   )
                })}
-            </ul>
          </div>
       )   
 }

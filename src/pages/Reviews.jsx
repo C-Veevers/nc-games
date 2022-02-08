@@ -10,13 +10,14 @@ export const Reviews = () => {
     });
    }, []);
    return (
-      <div className="games-container" id="all-games">
+      <div>
          <ul>
-               {reviews.map(review =>{
+               {reviews.map((review, index) =>{
                return (
-                  <li key={review.title}>
-                  <div className="gamecard">
-                     <div className="gameImage">
+                  <li key={`reviewKey_${index}`}>
+                     <Link to={`/reviews/${review.review_id}`}>
+                  <div className="review-card">
+                     <div className="review-Image">
                         <img src={review.review_img_url} alt={review.title} />
                      </div>
                      <div className="votes">
@@ -26,6 +27,7 @@ export const Reviews = () => {
                         {review.title}
                      </div>
                   </div>
+                  </Link>
                   </li>
                )
             })}
