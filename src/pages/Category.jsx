@@ -1,28 +1,21 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom";
-import {getReviews} from '../api'
+import { useParams, Link } from "react-router-dom";
+import { getCategory } from '../api'
 
-export const Reviews = () => {
-   const [reviews, setReviews] = useState([]);
-   const [sortBy, setSortBy] = useState("created_at")
+
+export const Category = () => {
+   const { type } = useParams()
+   const [review, setReview] = useState([]);
+   const [clicked, setClick] = useState(false)
    useEffect(() => {
-      getReviews(sortBy).then((res) => {
-      setReviews(res);
+      getCategory(type).then((res) => {
+      setReview(res);
     });
-   }, [sortBy]);
-   const selectHandler = (event) => {
-      setSortBy(event.target.value)
-   }
+   });
    return (
-      <div>
-         <label htmlFor="sortedBy">Sort By:
-            <select id="sortedBy" name="sortedBy" onChange={selectHandler}>
-               <option value="created_at">Date</option>
-               <option value="votes">Vote Count</option>
-            </select>
-         </label>
+<div>
          <ul>
-               {reviews.map((review, index) =>{
+               {review.map((review, index) =>{
                return (
                   <li key={`reviewKey_${index}`}>
                      <Link to={`/reviews/${review.review_id}`}>

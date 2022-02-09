@@ -1,4 +1,9 @@
+import { useContext } from "react"
+import { UserContext } from "../contexts/User"
+
+
 export const Header = () =>{
+   const {username, setUser} = useContext(UserContext)
    return (
       <div className="header">
          <div className="header-title">
@@ -6,10 +11,13 @@ export const Header = () =>{
          </div>
          <div className="header-user-container">
             <div className="header-user-img">
-               <img src = "https://avatars.dicebear.com/api/adventurer/userName.svg" />
+               {
+                  (username == "") 
+                  ? null 
+                  : <img alt="User Avatar"src = {`https://avatars.dicebear.com/api/adventurer/${username}.svg`} />}
             </div>
             <div className="header-user-status">
-               userName
+            {username}
             </div>
          </div>
       </div>
