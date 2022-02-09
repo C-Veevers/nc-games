@@ -11,6 +11,7 @@ export const Login = () => {
    const submitHandler = (event) => {
       event.preventDefault()
       setUser(input)
+      
    }
    return (
       <div>
