@@ -46,3 +46,13 @@ export const delComment = (id) => {
       return res.data.comment
    })
 }
+export const getUsers = () => {
+   return reviewApi.get('/users/').then(res => {
+      return res.data.users
+   })
+}
+export const createUser = (username, name, url) => {
+   return reviewApi.post(`/users/`, { username, name, avatar_url: url }).then(res => {
+      return res.data.user
+   })
+}
