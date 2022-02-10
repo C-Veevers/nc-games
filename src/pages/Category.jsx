@@ -6,7 +6,6 @@ import { getCategory } from '../api'
 export const Category = () => {
    const { type } = useParams()
    const [review, setReview] = useState([]);
-   const [clicked, setClick] = useState(false)
    useEffect(() => {
       getCategory(type).then((res) => {
       setReview(res);

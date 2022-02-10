@@ -29,8 +29,8 @@ export const SingleReview = () => {
          <h1>{review.title}</h1>
         
          <img width="50px" alt ={review.title} src = {review.review_img_url} />
-         {(review.comment_count == "0") ? "" : <Link to={`/reviews/${review.review_id}/comments`}><button>comments</button></Link>}
-         <button onClick={handleClick}>vote</button>
+         {(review.comment_count == "0") ? "" : <Link to={`/reviews/${review.review_id}/comments`}><button className="button">comments</button></Link>}
+         <button className="button" onClick={handleClick}>vote</button>
          <p>{review.title} by <Link to="/comments/">{review.author}</Link></p>
          <p>{review.review_body}</p>
          <p>{counter}</p>

@@ -32,12 +32,12 @@ export const AddComment = () => {
             <label htmlFor="comment">Comment</label><br />
             <textarea onChange={inputHandler} maxLength="250" placeholder="Add Your Comment" rows="5" cols="45" type="text" id="comment" name="comment" /><br />
             {typed.length}/250
-            <button>{status}</button>
+            <button className="button">{status}</button>
             </form> 
          :
             <>
             <h3>Comment Added</h3><br/>
-            <Link to={`/reviews/${id}/comments`}><button>Go Back</button></Link>
+            <Link to={`/reviews/${id}/comments`}><button className="button">Go Back</button></Link>
             </>
       }
       </div>

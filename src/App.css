@@ -1,19 +1,45 @@
-.App {
-	text-align: center;
+:root {
+	--secondary: #223843;
+	--sand: #d8b4a0;
+	--terr: #d77a61;
+	--primary: #eff1f3;
+	--gray: #dbd3d8;
 }
 
+body,
+p,
+a,
+ul,
+li {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+li {
+	list-style-type: none;
+}
+
+.App {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 .header {
 	background-image: url(../public/img/dice.png);
 	background-size: 250px;
 	background-repeat: no-repeat;
-	background-color: #282c34;
+	background-color: var(--secondary);
 	min-height: 18vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	font-size: calc(10px + 2vmin);
-	color: white;
+	color: var(--gray);
+	max-width: 1700px;
 }
 .header-user-container {
 	display: flex;
@@ -40,16 +66,61 @@
 	justify-content: space-between;
 }
 
-.review-card {
-}
 img {
 	width: 250px;
 }
 body {
-	background-color: white;
+	background-color: var(--secondary);
+	overflow-x: hidden;
+}
+.button {
+	background: none;
+	padding: 6px 12px;
+	border: solid 2px var(--sand);
+	border-radius: 20px;
+	text-transform: uppercase;
+	color: var(--terr);
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+}
+.button:hover {
+	background-color: var(--secondary);
+	color: var(--primary);
+	border-color: var(--terr);
 }
 
-ul {
-	list-style-type: none;
-	padding: 0;
+input,
+textarea {
+	background-color: rgba(0, 0, 0, 0.07);
+	padding: 10px 16px;
+	border-radius: 20px;
+	color: var(--secondary);
+}
+main {
+	background-image: url(../public/img/bg.jpg);
+	justify-self: center;
+	background-color: var(--gray);
+	height: 70vh;
+	width: 90vw;
+	border-radius: 10px;
+	padding-top: 10px;
+	max-width: 1700px;
+	align-content: center;
+}
+
+.login-form {
+	margin-top: 0;
+	margin-left: 10%;
+	margin-right: 10%;
+	width: 80%;
+	height: 80%;
+}
+a {
+	color: var(--terr);
+}
+.review-container {
+	display: flex;
+}
+.reviews {
+	overflow: scroll;
+	height: 68vh;
 }

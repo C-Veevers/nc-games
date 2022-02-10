@@ -14,7 +14,8 @@ export const Reviews = () => {
       setSortBy(event.target.value)
    }
    return (
-      <div>
+      <main className="review-container">
+         <div className="reviews">
          <label htmlFor="sortedBy">Sort By:
             <select id="sortedBy" name="sortedBy" onChange={selectHandler}>
                <option value="created_at">Date</option>
@@ -42,6 +43,7 @@ export const Reviews = () => {
                )
             })}
          </ul>
-      </div>
+         </div>
+      </main>
    )
 }

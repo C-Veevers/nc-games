@@ -23,13 +23,13 @@ export const Comments = () => {
 
    return (
       <div>
-         <Link to={`/reviews/${id}/comments/add`}><button>{commentLable}</button></Link>
+         <Link to={`/reviews/${id}/comments/add`}><button className="button">{commentLable}</button></Link>
       {comments.map((comment, index) => {
          return (
             <div key={`comments_${index}`}>
             <h3>{comment.author}</h3>
             <p>{comment.body}</p>
-            {(username == comment.author) ? <button onClick={()=>{clickHandler(comment.comment_id)}}>Delete Comment</button> : null}
+            {(username == comment.author) ? <button className="button" onClick={()=>{clickHandler(comment.comment_id)}}>Delete Comment</button> : null}
             <p>votes: {comment.votes}</p>
 
             </div>
