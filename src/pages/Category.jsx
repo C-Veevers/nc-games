@@ -5,20 +5,23 @@ import { getCategory } from '../api'
 
 export const Category = () => {
    const { type } = useParams()
-   const [review, setReview] = useState([]);
+   const [reviews, setReviews] = useState([]);
    useEffect(() => {
       getCategory(type).then((res) => {
-      setReview(res);
+      setReviews(res);
     });
    });
    return (
 <div>
          <ul>
-               {review.map((review, index) =>{
+               {reviews.map((review, index) =>{
+                  if (index == reviews.length-1){
+                     return (<></>)
+                  }
                return (
                   <li key={`reviewKey_${index}`}>
                      <Link to={`/reviews/${review.review_id}`}>
-                  <div className="review-card">
+                  <div className="card">
                      <div className="review-Image">
                         <img src={review.review_img_url} alt={review.title} />
                      </div>

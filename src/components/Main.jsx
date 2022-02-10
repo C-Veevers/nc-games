@@ -8,7 +8,7 @@ import { Login } from "../pages/Login";
 import { NotFound } from "../pages/NotFound";
 export const Main = () => {
    return (
-      <div className="main-container">
+      <div className="main">
       <Routes>
       <Route path="/" element={<Login />} />
         <Route path="/reviews" element={<Reviews />} />

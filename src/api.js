@@ -37,7 +37,6 @@ export const incVotes = (id) => {
 }
 export const postComment = (id, comment, username = "jessjelly") => {
    return reviewApi.post(`/reviews/${id}/comments`, { username, body: comment }).then(res => {
-      console.log(res.data.comment)
       return res.data.comment
    })
 }
@@ -51,8 +50,14 @@ export const getUsers = () => {
       return res.data.users
    })
 }
-export const createUser = (username, name, url) => {
-   return reviewApi.post(`/users/`, { username, name, avatar_url: url }).then(res => {
+export const getUser = (username) => {
+   return reviewApi.get(`/users/${username}`).then(res => {
+      return res.data.user
+   })
+}
+export const createUser = (username, name) => {
+   const url = `https://avatars.dicebear.com/api/adventurer/${username}.svg`
+   return reviewApi.post(`/users/`, { username: username, name: name, avatar_url: url }).then(res => {
       return res.data.user
    })
 }
