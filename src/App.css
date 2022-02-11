@@ -67,8 +67,8 @@ li {
 .nav-bar {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-around;
+	width: 80%;
 }
 
 body {
@@ -116,6 +116,7 @@ main {
 }
 .login-avatar {
 	border-radius: 50%;
+	height: 300px;
 }
 .login-form {
 	margin-top: 0;
@@ -123,6 +124,10 @@ main {
 	margin-right: 10%;
 	width: 80%;
 	height: 80%;
+}
+.login-buttons {
+	display: flex;
+	justify-content: space-evenly;
 }
 a {
 	color: var(--terr);
@@ -223,4 +228,26 @@ h4 {
 }
 hr {
 	color: orange;
+}
+.small-text {
+	font-size: 0.7em;
+	text-transform: uppercase;
+	color: var(--secondary);
+}
+.tiny-text {
+	font-size: 0.6em;
+	color: var(--secondary);
+}
+.disable {
+	background-color: rgba(0, 0, 0, 0.05);
+	margin-bottom: 4px;
+}
+.comment {
+	width: 380px;
+	word-wrap: break-word;
+}
+.word-counter {
+	display: flex;
+	padding-left: 20px;
+	justify-content: space-between;
 }

@@ -51,7 +51,7 @@ export const Reviews = () => {
                         <img className="card-img" src={review.review_img_url} alt={review.title} />
                      </div>
                      <div className="title">
-                        {review.title}
+                        <h3>{review.title}</h3>
                      </div>
                   </div>
                   </Link>

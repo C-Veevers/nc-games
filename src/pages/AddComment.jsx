@@ -21,25 +21,37 @@ export const AddComment = () => {
          setAdded(true)
       })
       .catch(err => {
-         setStatus("Error Not Logged In")
+         setStatus("Error: Unable to Comment as a Guest")
       })
       
    }  
    return (
-      <div>{(!added) 
-         ? 
-            <form  onSubmit={submitHandler}>
-            <label htmlFor="comment">Comment</label><br />
-            <textarea onChange={inputHandler} maxLength="250" placeholder="Add Your Comment" rows="5" cols="45" type="text" id="comment" name="comment" /><br />
-            {typed.length}/250
-            <button className="button">{status}</button>
-            </form> 
-         :
-            <>
-            <h3>Comment Added</h3><br/>
-            <Link to={`/reviews/${id}/comments`}><button className="button">Go Back</button></Link>
-            </>
-      }
-      </div>
+      <main className="main-container">
+         <div className="overflow comment">
+            <div className="card">
+               
+               {(!added) 
+               ?  <>
+                  <form  onSubmit={submitHandler}>
+                     <label>
+                     <textarea onChange={inputHandler} maxLength="250" placeholder="Add Your Comment" rows="10" cols="35" type="text" id="comment" name="comment" /><br />
+                     </label>
+                     <div className="word-counter">
+                     <p className="tiny-text">{typed.length}/250</p>
+                     <button className="button">{status}</button>
+                     </div>
+                     
+                  </form> 
+                  <h3>Post Comment</h3>
+                  </>
+               :
+                  <>
+                  <h2>Comment Added</h2><br/>
+                  <Link to={`/reviews/${id}/comments`}><button className="button">Back To Comments</button></Link>
+                  </>
+               }
+            </div>
+         </div>
+      </main>
    )
 }

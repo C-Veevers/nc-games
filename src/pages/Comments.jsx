@@ -7,7 +7,6 @@ import arrow from '../images/uparrow.png'
 export const Comments = () => {
    const { id } = useParams()
    const [comments, setComments] = useState([]);
-   const [commentLable, setCommentLable] = useState("Add Comment")
    const {username} = useContext(UserContext)
    const [refresh, setRefresh] = useState(0)
    const [noContent, setNoContent] = useState(false)
@@ -28,7 +27,7 @@ export const Comments = () => {
       <main className="main-container">
          
          <div className="overflow">
-            <div className="s-title"><h2>Comments</h2></div>
+            <h2>Comments</h2>
                <div className="comment-button">
                   <Link to={`/reviews/${id}`}><button className="button">Back To Review</button></Link>
                   <Link to={`/reviews/${id}/comments/add`}><button className="button">Post Comment</button></Link>
@@ -46,7 +45,9 @@ export const Comments = () => {
                      </div>
                      <div className="card-body">
                         <hr />
-                        {comment.body}<br/>
+                        <div>
+                        <p>{comment.body}</p><br/>
+                        </div>
                         {(username == comment.author) ? <button className="button delete" onClick={()=>{clickHandler(comment.comment_id)}}>Delete Comment</button> : null}
                      </div>      
                      
@@ -74,17 +75,3 @@ export const Comments = () => {
       )
    }
    
-/*       <div>
-         <Link to={`/reviews/${id}/comments/add`}><button className="button">{commentLable}</button></Link>
-      {comments.map((comment, index) => {
-         return (
-            <div key={`comments_${index}`}>
-            <h3>{comment.author}</h3>
-            <p>{comment.body}</p>
-            {(username == comment.author) ? <button className="button" onClick={()=>{clickHandler(comment.comment_id)}}>Delete Comment</button> : null}
-            <p>votes: {comment.votes}</p>
-
-            </div>
-         )
-      })}
-      </div> */

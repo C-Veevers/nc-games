@@ -57,6 +57,7 @@ export const getUser = (username) => {
 }
 export const createUser = (username, name) => {
    const url = `https://avatars.dicebear.com/api/adventurer/${username}.svg`
+   console.log(username, name)
    return reviewApi.post(`/users/`, { username: username, name: name, avatar_url: url }).then(res => {
       return res.data.user
    })

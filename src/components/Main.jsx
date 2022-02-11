@@ -6,6 +6,7 @@ import { Comments } from '../pages/Comments'
 import { AddComment } from '../pages/AddComment'
 import { Login } from "../pages/Login";
 import { NotFound } from "../pages/NotFound";
+import { CategoryList } from "../pages/CategoryList";
 export const Main = () => {
    return (
       <div className="main">
@@ -15,6 +16,7 @@ export const Main = () => {
         <Route path="/reviews/:id" element={<SingleReview />} />
         <Route path="/reviews/:id/comments" element={<Comments />} />
         <Route path="/reviews/:id/comments/add" element={<AddComment />} />
+        <Route path="/categories" element={<CategoryList />} />
         <Route path="/category/:type" element={<Category />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
