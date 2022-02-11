@@ -7,21 +7,27 @@ export const AddComment = () => {
    const [typed, setTyped] = useState("");
    const [added, setAdded] = useState(false)
    const {username} = useContext(UserContext)
-   const [status, setStatus] = useState("Submit")
+   const [status, setStatus] = useState("")
+   const [disable, setDisable] = useState(true)
    
    const inputHandler = (event) => {
       setTyped(event.target.value)
+      setDisable(false)
    }
 
    const submitHandler = (event) => {
       event.preventDefault()
       setStatus("..Posting Comment..")
+      if (typed === ""){
+         setStatus("Comments must contain text")
+         return
+      }
       postComment(id, typed, username)
       .then(()=>{
          setAdded(true)
       })
       .catch(err => {
-         setStatus("Error: Unable to Comment as a Guest")
+         setStatus("Unable to Comment as a Guest")
       })
       
    }  
@@ -33,12 +39,16 @@ export const AddComment = () => {
                {(!added) 
                ?  <>
                   <form  onSubmit={submitHandler}>
-                     <label>
+                     <label className="small-text">{status}<br/>
                      <textarea onChange={inputHandler} maxLength="250" placeholder="Add Your Comment" rows="10" cols="31" type="text" id="comment" name="comment" /><br />
                      </label>
                      <div className="word-counter">
                      <p className="tiny-text">{typed.length}/250</p>
-                     <button className="button">{status}</button>
+                     {(disable)
+                     ? null
+                     :<button className="button">Submit</button>
+                     }
+                     
                      </div>
                   </form> 
                   <h3>Post Comment</h3>
