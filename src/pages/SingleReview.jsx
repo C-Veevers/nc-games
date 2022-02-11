@@ -18,10 +18,9 @@ export const SingleReview = () => {
    const handleClick = () => {
       setCounter(curr => curr+1)
       setErr(null)
-      incVotes(review.review_id).catch(err => {
+      incVotes(review.review_id).catch(() => {
          setCounter(curr => curr-1)
          setErr('Please Try Again')
-         console.log(err)
       })
    }
    return (
