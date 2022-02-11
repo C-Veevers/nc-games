@@ -50,6 +50,7 @@ export const SingleReview = () => {
                   <img className="votes-arrow" alt="up arrow" onClick={handleClick} src={arrow} /> <p>{review.votes}</p>
                </div>
             </div>
+            <p>{err}</p>
             
          </div>
       </main>      
