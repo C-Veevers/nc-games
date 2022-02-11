@@ -4,11 +4,11 @@ import { Link } from "react-router-dom"
 
 
 export const Header = () =>{
-   const {username, setUser} = useContext(UserContext)
+   const {username} = useContext(UserContext)
    return (
       <div className="header">
          <div className="header-title">
-            {(username == "") 
+            {(username === "") 
             ? <Link to="/"><h1>Roll Review</h1></Link>
             : <Link to="/reviews"><h1>Roll Review</h1></Link>
             }
@@ -16,7 +16,7 @@ export const Header = () =>{
          <div className="header-user-container">
             <div className="header-user-img">
                {
-                  (username == "") 
+                  (username === "") 
                   ? null 
                   : <Link to="/"><img alt="User Avatar"src = {`https://avatars.dicebear.com/api/adventurer/${username}.svg`} /></Link>}
             </div>

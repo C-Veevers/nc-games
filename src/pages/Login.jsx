@@ -35,7 +35,7 @@ export const Login = () => {
    return (
       
       <main className="login">
-         {(newUser == true)
+         {(newUser === true)
             ? <div className="grid">
                <img className="login-avatar" alt="avatar" src={`https://avatars.dicebear.com/api/adventurer/${username}.svg`} />
                <h2>New User: {username}</h2>
@@ -48,7 +48,7 @@ export const Login = () => {
                <br/><Link to="/reviews"><button className="button">Continue as Guest*</button></Link><br/><p className="tiny-text">*you will not be able to comment or create reviews</p>
                </div>
             :
-            (username == "") 
+            (username === "") 
             ?
             <div className="grid">
                <img className="login-avatar" alt="avatar" src={`https://avatars.dicebear.com/api/adventurer/${input}.svg`} />

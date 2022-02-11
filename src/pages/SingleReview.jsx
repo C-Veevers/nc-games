@@ -14,7 +14,7 @@ export const SingleReview = () => {
       setCounter(res.votes)
       ;
     });
-   }, [counter]);
+   }, [counter, id]);
    const handleClick = () => {
       setCounter(curr => curr+1)
       setErr(null)
@@ -30,7 +30,7 @@ export const SingleReview = () => {
          <div className="overflow">
          <div className="s-title"><h2>{review.title}</h2></div>
          <div className="comment-button">
-            {(review.comment_count != "0")
+            {(review.comment_count !== "0")
             ?<Link to={`/reviews/${id}/comments`}><button className="button">View Comments: {review.comment_count}</button></Link>
             :<button className="button">Comments: {review.comment_count}</button>
             }

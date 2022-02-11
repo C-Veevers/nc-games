@@ -18,7 +18,7 @@ export const Category = () => {
             <h2>{type}</h2>
          <ul>
                {reviews.map((review, index) =>{
-                  if (index == reviews.length-1){
+                  if (index === reviews.length-1){
                      return (<></>)
                   }
                return (

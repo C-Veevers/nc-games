@@ -26,7 +26,7 @@ export const Reviews = () => {
          </label></div>
          <ul>
                {reviews.map((review, index) =>{
-                  if (index == reviews.length-1){
+                  if (index === reviews.length-1){
                      return (
                         <li key={`reviewKey_${index}`}>
                         <div className="card">
