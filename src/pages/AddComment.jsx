@@ -34,13 +34,12 @@ export const AddComment = () => {
                ?  <>
                   <form  onSubmit={submitHandler}>
                      <label>
-                     <textarea onChange={inputHandler} maxLength="250" placeholder="Add Your Comment" rows="10" cols="35" type="text" id="comment" name="comment" /><br />
+                     <textarea onChange={inputHandler} maxLength="250" placeholder="Add Your Comment" rows="10" cols="31" type="text" id="comment" name="comment" /><br />
                      </label>
                      <div className="word-counter">
                      <p className="tiny-text">{typed.length}/250</p>
                      <button className="button">{status}</button>
                      </div>
-                     
                   </form> 
                   <h3>Post Comment</h3>
                   </>

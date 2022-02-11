@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { useParams, Link} from "react-router-dom";
-import { delComment, getComments, getUser } from '../api'
+import { delComment, getComments } from '../api'
 import { UserContext } from "../contexts/User";
 import arrow from '../images/uparrow.png'
 
@@ -15,7 +15,7 @@ export const Comments = () => {
       getComments(id).then((res) => {
       setComments(res);
     }).catch(err=>setNoContent(true))
-   },[refresh]);
+   },[refresh, id]);
 
    const clickHandler = (comment_id) => {
       delComment(comment_id).then(()=>{
@@ -32,7 +32,7 @@ export const Comments = () => {
                   <Link to={`/reviews/${id}`}><button className="button">Back To Review</button></Link>
                   <Link to={`/reviews/${id}/comments/add`}><button className="button">Post Comment</button></Link>
                </div>
-               { (noContent == false)
+               { (noContent === false)
                ? comments.map((comment, index) => {
                return (
                   <div key={`comments_${index}`} className="card">
@@ -48,7 +48,7 @@ export const Comments = () => {
                         <div>
                         <p>{comment.body}</p><br/>
                         </div>
-                        {(username == comment.author) ? <button className="button delete" onClick={()=>{clickHandler(comment.comment_id)}}>Delete Comment</button> : null}
+                        {(username === comment.author) ? <button className="button delete" onClick={()=>{clickHandler(comment.comment_id)}}>Delete Comment</button> : null}
                      </div>      
                      
                      <div className="comment-img">
