@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const reviewApi = axios.create({
-   baseURL: "https://project1-nc.herokuapp.com/api",
+   baseURL: "https://nc-project-1.herokuapp.com/api",
 });
 
 export const getCategories = () => {
