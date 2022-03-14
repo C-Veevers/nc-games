@@ -20,4 +20,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ## Live Version
 
-[On Netlify](https://nc-project-1.netlify.com)
+[On Netlify](https://orchestrate.netlify.app/)
