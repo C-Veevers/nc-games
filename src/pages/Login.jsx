@@ -58,7 +58,7 @@ export const Login = () => {
                      <input onChange={inputHandler} name="loginName" type="text" placeholder="Please Enter Your UserName" />
                   </label>
                </form><br/>
-               <p className="small-text">New users should register in order to post comments or reviews</p>
+               <p className="small-text">enter Test as the username and hit enter to login with the test account<br/>Enter your own username and press enter to begin user creation</p>
             </div>
             :
             <div className="grid">
